@@ -1,8 +1,9 @@
 extends Node
 
 @onready var playe_scene = preload("res://SCENE/Player/player.tscn")
-@onready var tilemap: TileMapLayer = $TileMapLayer
-@export var borders = Rect2(1,1,120,55)
+@onready var tilemap: TileMapLayer = $TileMap_WALL
+
+@export var borders = Rect2(1,1,100,100)
 
 
 var walker
@@ -33,7 +34,7 @@ func generate_level():
 			using_cells.append(tile)
 			
 	tilemap.set_cells_terrain_connect(using_cells,0,0)
-	tilemap.set_cells_terrain_path(using_cells,0,0)
+	#tilemap.set_cells_terrain_path(using_cells,0,0)
 	instance_player()
 
 func _input(event: InputEvent) -> void:
