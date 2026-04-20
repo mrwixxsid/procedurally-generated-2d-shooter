@@ -1,6 +1,6 @@
 extends Area2D
 
-
+@onready var fx_scene = preload("res://SCENE/Player/Bullet/fx_scene.tscn")
 
 @export var speed: float = 600.0 # Adjust this value to your liking
 var direction: Vector2 = Vector2.ZERO
@@ -16,8 +16,14 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	instantiate_fx()
 	queue_free()
 
 
 func _on_visible_on_screen_screen_exited() -> void:
 	queue_free()
+
+func instantiate_fx():
+	var fx = fx_scene.instantiate()
+	fx.global_position = global_position
+	get_tree().root.add_child(fx)
