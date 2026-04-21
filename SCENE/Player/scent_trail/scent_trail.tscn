@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://iicbupnygkdo"]
+
+[ext_resource type="Script" uid="uid://swshism7t07f" path="res://SCENE/Player/scent_trail/scent_trail.gd" id="1_vdlgp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lup2"]
+
+[node name="scent_trail" type="Area2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_vdlgp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.761086, 0.780726, 0.970381, 0.705882)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4lup2")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

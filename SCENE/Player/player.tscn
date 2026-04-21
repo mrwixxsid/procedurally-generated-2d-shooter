@@ -197,7 +197,7 @@ _data = {
 &"move": SubResource("Animation_j1sd0")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["PLAYER"]]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(0, 13)
@@ -247,3 +247,9 @@ texture = ExtResource("3_7mry7")
 position = Vector2(13.5, 0)
 
 [node name="mouse_icon" parent="." instance=ExtResource("4_kd17s")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

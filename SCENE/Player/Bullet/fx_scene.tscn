@@ -41,7 +41,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xhqbs")
 }],
-"loop": true,
+"loop": false,
 "name": &"explode",
 "speed": 10.0
 }]
@@ -55,4 +55,5 @@ script = ExtResource("1_ewp8s")
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_aicum")
 animation = &"explode"
-frame_progress = 0.763964
+frame = 4
+frame_progress = 1.0

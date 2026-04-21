@@ -6,6 +6,7 @@ var is_dead = false
 
 
 @onready var bullet_scene = preload("res://SCENE/Player/Bullet/bullet_1.tscn")
+@onready var scent_trail = preload("res://SCENE/Player/scent_trail/scent_trail.tscn")
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hit_box: Area2D = $HitBox
@@ -142,3 +143,14 @@ func instantiate_bullet():
 #reset animation - dead to move
 func reset_state():
 	current_state = player_state.MOVE
+
+
+func instance_trail_scent():
+	var player_cent = scent_trail.instantiate()
+	player_cent.global_position = global_position
+	get_tree().root.add_child(player_cent)
+
+
+func _on_timer_timeout() -> void:
+	instance_trail_scent()
+	$Timer.start()
