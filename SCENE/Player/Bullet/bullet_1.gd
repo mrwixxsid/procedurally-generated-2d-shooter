@@ -27,3 +27,4 @@ func instantiate_fx():
 	var fx = fx_scene.instantiate()
 	fx.global_position = global_position
 	get_tree().root.add_child(fx)
+	

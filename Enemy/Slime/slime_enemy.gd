@@ -178,4 +178,5 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 func drop_off_ammo():
 	var ammo = ammo_basic.instantiate()
 	ammo.global_position = global_position
-	get_tree().root.add_child(ammo)
+	#get_tree().root.add_child(ammo)
+	get_tree().current_scene.add_child(ammo)
