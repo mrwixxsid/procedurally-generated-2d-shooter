@@ -10,9 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Procedurally generated maps"
+config/name="Procedurally generated Roglike"
+config/description="s"
+config/version="1.1"
 run/main_scene="uid://cigwqsrimvn6g"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [display]
@@ -63,6 +69,7 @@ action={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Walls"
 2d_physics/layer_5="Interactable"
+2d_physics/layer_6="scent"
 
 [rendering]
 

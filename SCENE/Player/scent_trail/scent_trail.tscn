@@ -4,8 +4,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lup2"]
 
-[node name="scent_trail" type="Area2D"]
+[node name="scent_trail" type="Area2D" groups=["Follow"]]
 scale = Vector2(0.3, 0.3)
+collision_layer = 32
+collision_mask = 4
 script = ExtResource("1_vdlgp")
 
 [node name="ColorRect" type="ColorRect" parent="."]

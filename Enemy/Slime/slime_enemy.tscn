@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cqwyng0v3kcwm"]
+[gd_scene load_steps=49 format=3 uid="uid://cqwyng0v3kcwm"]
 
 [ext_resource type="Script" uid="uid://b66x85todn6vt" path="res://Enemy/Slime/slime_enemy.gd" id="1_awjrn"]
 [ext_resource type="Texture2D" uid="uid://dwc2g7dff7vsm" path="res://ASSETS/Slime1/Attack/Slime1_Attack_full.png" id="2_tywk3"]
@@ -319,8 +319,10 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_awjrn"]
 radius = 9.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tywk3"]
+radius = 41.5933
+
 [node name="Slime_enemy" type="CharacterBody2D"]
-z_index = 1
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 11
@@ -352,5 +354,14 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="chase_box" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chase_box"]
+shape = SubResource("CircleShape2D_tywk3")
+debug_color = Color(0.912088, 9.56839e-05, 0.724395, 0.42)
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_exited" from="chase_box" to="." method="_on_chase_box_area_exited"]
