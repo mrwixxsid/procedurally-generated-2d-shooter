@@ -154,3 +154,20 @@ func instance_trail_scent():
 func _on_timer_timeout() -> void:
 	instance_trail_scent()
 	$Timer.start()
+
+#
+#func _on_hit_box_area_entered(area: Area2D) -> void:
+	#
+#
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy_basic"):
+		take_damage(0.25)
+
+func take_damage(amount: float) -> void:
+	Player_Data.health -= amount
+	var t := create_tween()
+	$Sprite2D.material.set_shader_parameter("flash_intensity", 1.0)
+	t.tween_method(
+		func(v): $Sprite2D.material.set_shader_parameter("flash_intensity", v),
+		1.0, 0.0, 0.75)

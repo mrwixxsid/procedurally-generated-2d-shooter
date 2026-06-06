@@ -18,7 +18,7 @@ func _ready() -> void:
 	choose_direction()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match new_direction:
 		enemy_direction.RIGHT:
 			move_right()
